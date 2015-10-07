@@ -1,10 +1,12 @@
 require "gosu"
+require_relative 'z_order'
+require_relative 'star'
 
 class Player
 	
 	TURN_INCREMENT = 4.5
 	ACCELERATION = 0.5
-
+	COLLISION_DISTANCE = 35 
 	def initialize
 		@x = @y = @vel_x = @vel_y = @angle = 0.0
 		@score = 0
@@ -40,7 +42,22 @@ class Player
 	end
 
 	def draw
-		@image.draw_rot(@x, @y, 1, @angle)
+		@image.draw_rot(@x, @y, ZOrder::PLAYER, @angle)
 	end
+
+	def score
+		@score
+	end
+
+	def collect_stars(stars)
+		if stars.reject! {|star| colliding?(star)}
+		end
+	end
+
+	private
+		def colliding?(star)
+			Gosu::distance(@x, star.x, star.y) < COLLISION_DISTANCE
+		end
+		
 
 end
