@@ -1,0 +1,5 @@
+classes need
+shpace ship 
+envioment 
+score 
+stars
