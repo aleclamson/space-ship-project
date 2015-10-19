@@ -56,7 +56,7 @@ class Player
 
 	private
 		def colliding?(star)
-			Gosu::distance(@x, star.x, star.y) < COLLISION_DISTANCE
+			Gosu::distance(@x, @y, star.x, star.y) < COLLISION_DISTANCE
 		end
 		
 

@@ -33,6 +33,7 @@ class GameWindow < Gosu::Window
 	def draw
 		@player.draw
 		@background_image.draw(0, 0, ZOrder::BACKGROUND)
+		@stars.each { |star| star.draw}
 	end
 
 	def button_down(id)
