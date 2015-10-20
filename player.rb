@@ -3,14 +3,17 @@ require_relative 'z_order'
 require_relative 'star'
 
 class Player
-	
+	attr_reader :score
+
 	TURN_INCREMENT = 4.5
 	ACCELERATION = 0.5
 	COLLISION_DISTANCE = 35 
+
 	def initialize
 		@x = @y = @vel_x = @vel_y = @angle = 0.0
 		@score = 0
 		@image = Gosu::Image.new("media/starfighter.bmp")
+		@beep = Gosu::Sample.new("media/beep.wav")
 	end
 
 	def warp(x, y)
@@ -51,6 +54,8 @@ class Player
 
 	def collect_stars(stars)
 		if stars.reject! {|star| colliding?(star)}
+			@score += 1
+			@beep.play
 		end
 	end
 
