@@ -3,7 +3,7 @@ require_relative 'z_order'
 class Timer
 	attr_reader :time_left
 	def initialize
-		@time_left = 5
+		@time_left = 150
 	end
 
 	def print_out
