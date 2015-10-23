@@ -69,6 +69,9 @@ class Player
 			@health -= 10
 		end
 	end
+	def death?
+		@health <= 1
+	end
 
 	private
 		def colliding?(star)

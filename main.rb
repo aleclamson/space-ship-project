@@ -18,7 +18,7 @@ class GameWindow < Gosu::Window
 		@star_anim = Gosu::Image::load_tiles("media/star.png", 25, 25)
 		@stars = []
 		
-		@timer = Timer.new
+		@timer = Timer.new(@player)
 		@font = Gosu::Font.new(20)
 
 		
@@ -26,6 +26,9 @@ class GameWindow < Gosu::Window
 	end
 
 	def update
+		return if @timer.game_over?
+		return if @player.death?
+
 		return if @timer.game_over?
 		@player.turn_left if Gosu::button_down? Gosu::KbLeft
 		@player.turn_right if Gosu::button_down? Gosu::KbRight
