@@ -44,6 +44,7 @@ class GameWindow < Gosu::Window
 		if rand(100) < 4 && @bombs.size < 3
 			@bombs.push(Bomb.new)
 		end
+		#@if bombs.reject! {|bomb| Bomb.fuse_out?(bomb)}
 	end
 
 	def draw
