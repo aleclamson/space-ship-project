@@ -45,6 +45,7 @@ class GameWindow < Gosu::Window
 			@bombs.push(Bomb.new)
 		end
 		#@if bombs.reject! {|bomb| Bomb.fuse_out?(bomb)}
+		# -- line adds the fuse to the bombs causes errors --
 	end
 
 	def draw
